@@ -1,0 +1,299 @@
+/* =========================
+   GLOBAL
+========================= */
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.cart-container {
+  width: 341px; /* Figma exact */
+  margin: auto;
+}
+
+/* =========================
+   TOP LABEL
+========================= */
+.top-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: #FF6B82;
+}
+
+.top-label .line {
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+/* =========================
+   CART BOX
+========================= */
+.rect-43 {
+  width: 341px;
+  background: #ffffff;
+  border: 0.9px solid #C8C8C8;
+  margin-bottom: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+/* COLLAPSED & EXPANDED */
+.rect-43:not(.active) {
+  height: 74.11px;
+}
+
+.rect-43.active {
+  height: 174.11px;
+  background: #FFF9FA;
+  border: 2px solid #FF6B82;
+}
+
+/* =========================
+   RADIO BUTTON
+========================= */
+.rect-43 .radio {
+  position: absolute;
+  width: 14.46px;
+  height: 14.46px;
+  top: 20px;
+  left: 12px;
+  border: 2px solid #DADADA;
+  border-radius: 50%;
+  background: #fff;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.rect-43 .radio:checked {
+  border-color: #FF6B82;
+}
+
+.rect-43 .radio:checked::after {
+  content: "";
+  position: absolute;
+  width: 9.038px;
+  height: 9.038px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FF6B82;
+  border-radius: 50%;
+}
+
+/* =========================
+   CONTENT GRID
+========================= */
+.content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px 12px 12px 36px; /* space for radio */
+  height: 74.11px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.unit {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: -15px;
+}
+
+.discount {
+  background: #FF6B82;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+.sub {
+  font-size: 12px;
+  color: #000;
+  opacity: 0.6;
+}
+
+.right {
+  text-align: left;
+}
+
+.price {
+  font-weight: 520;
+  font-size: 14px;
+}
+
+.old {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #000;
+  opacity: 0.3;
+}
+
+/* =========================
+   EXPANDABLE
+========================= */
+.expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+
+.rect-43.active .expandable {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* SIZE + COLOR GRID */
+.size-color {
+  display: grid;
+  grid-template-columns: 20px 70px 80px; /* # | Size | Colour */
+  column-gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.size-color span {
+  font-size: 9.04px;
+  font-weight: 400;
+  color: #000;
+}
+
+.size-color select {
+  padding: 0 6px;
+  font-size: 9.04px;
+  border: 0.9px solid #D9D9D9;
+  border-radius: 1.81px;
+  background: #fff;
+  height: 25.31px;
+}
+
+.size-color select:first-of-type {
+  width: 65.98px;
+}
+
+.size-color select:last-of-type {
+  width: 72.3px;
+}
+
+.move {
+  margin-left: 15px;
+  margin-top: 7px;
+}
+
+/* SIZE / COLOUR HEADER */
+.sc-header {
+  display: grid;
+  grid-template-columns: 20px 70px 80px;
+  column-gap: 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.sc-header span {
+  font-size: 9.04px;
+  font-weight: 400;
+  color: #000;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #FF6B82;
+}
+
+.total {
+  color: #000;
+}
+
+.add-cart {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #FF6B82;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.powered {
+  text-align: right;
+  font-size: 12px;
+  color: #00000066;
+  margin-top: 6px;
+}
+
+/* =========================
+   HOVER
+========================= */
+.rect-43:hover {
+  border: 2px solid #FF6B82;
+}
+
+/* MOST POPULAR BADGE */
+.most {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background-color: #FF6B82;
+  color: #fff;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.7;
+  padding: 2px 6px;
+  border-radius: 0 0 4px 4px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.rect-wrapper {
+  position: relative;
+  width: 341px;
+  margin-bottom: 12px;
+}
+
+.empty {
+  position: absolute;
+  width: 125px;
+  height: 9.2px;
+  background: #D7445B;
+  right: -3px;
+  top: -2.1%;
+  transform: translateY(-50%);
+  z-index: 5;
+  clip-path: polygon(
+    20% 0%, 80% 0%, 100% 100%, 0% 100%
+  );
+}
